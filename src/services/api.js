@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_NOTIFICATION_MESSAGE, SERVICE_URLS } from '../constants/config';
 
-const API_URL = 'http://localhost:5000/';
+const API_URL = 'https://blogdb-5auf.onrender.com/';
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
