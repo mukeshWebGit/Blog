@@ -18,13 +18,14 @@ export default function Login() {
     user:'',
     password:''
   }
+  
   const signinInitiallValue = { 
-    userName:'',
-    password:''
-  }
+    username:'',
+     password:''
+   }
     const [account, toggleAccount] = useState('Login'); 
    const [signUp, setSignup] = useState(signupInitiallValue); 
-   const [signin, setSignin] = useState(signinInitiallValue); 
+   const [signin, setSignin] = useState(signinInitiallValue);  
    const [error, setError] = useState('');
 
 const SwitchAccount = () => {
@@ -35,9 +36,12 @@ const onChangeFun = (e) => {
  setSignup ({...signUp, [e.target.name] : e.target.value});
 
 }
+  
+
  const onValueChange = (e) => {
-  setSignin({...signin,  [e.target.name] : e.target.value})
- }
+  setSignin ({...signin, [e.target.name] : e.target.value});
+ 
+}
  
 const signupUser = async  () => {
   let response = await API.userSignup(signUp);
@@ -51,17 +55,15 @@ const signupUser = async  () => {
   }
   }
 
-  const loginUser = async () => {
-
-    const response = await API.userLogin(signin);
+  const loginUser = async  () => {
+    let response = await API.userLogin(signin);
     if(response.isSuccess){
-      setError('');
+      setError(''); 
+      
     }else{
       setError('Someting went wrong! please try again later');
     }
-
-  }
- 
+    }
     
   return (
     <Wrapper>
@@ -69,7 +71,7 @@ const signupUser = async  () => {
         {account === 'Login' ?
         <FormBox>
              <DialogTitle >Login</DialogTitle>
-            <TextField type='text' value={signin.userName} name='userName' label="User Name" onChange={(e) => onValueChange(e)}></TextField>
+            <TextField type='text' value={signin.username} name='username' label="User Name" onChange={(e) => onValueChange(e)}></TextField>
             <TextField type='password' value={signin.password} name='password' label="password" onChange={(e) => onValueChange(e)}></TextField>
             {error && <Error>{error}</Error>}
             <Button variant='contained' onClick={()=> loginUser()}>Signin</Button>
