@@ -18,8 +18,13 @@ export default function Login() {
     user:'',
     password:''
   }
+  const signinInitiallValue = { 
+    userName:'',
+    password:''
+  }
     const [account, toggleAccount] = useState('Login'); 
    const [signUp, setSignup] = useState(signupInitiallValue); 
+   const [signin, setSignin] = useState(signinInitiallValue); 
    const [error, setError] = useState('');
 
 const SwitchAccount = () => {
@@ -30,7 +35,9 @@ const onChangeFun = (e) => {
  setSignup ({...signUp, [e.target.name] : e.target.value});
 
 }
- 
+ const onValueChange = (e) => {
+  setSignin({...signin,  [e.target.name] : e.target.value})
+ }
  
 const signupUser = async  () => {
   let response = await API.userSignup(signUp);
@@ -43,6 +50,17 @@ const signupUser = async  () => {
     setError('Someting went wrong! please try again later');
   }
   }
+
+  const loginUser = async () => {
+
+    const response = await API.userLogin(signin);
+    if(response.isSuccess){
+      setError('');
+    }else{
+      setError('Someting went wrong! please try again later');
+    }
+
+  }
  
     
   return (
@@ -51,10 +69,10 @@ const signupUser = async  () => {
         {account === 'Login' ?
         <FormBox>
              <DialogTitle >Login</DialogTitle>
-            <TextField type='text' name='UserName' label="User Name"></TextField>
-            <TextField type='password' name='Pass' label="Pass" ></TextField>
+            <TextField type='text' value={signin.userName} name='userName' label="User Name" onChange={(e) => onValueChange(e)}></TextField>
+            <TextField type='password' value={signin.password} name='password' label="password" onChange={(e) => onValueChange(e)}></TextField>
             {error && <Error>{error}</Error>}
-            <Button variant='contained'>Signin</Button>
+            <Button variant='contained' onClick={()=> loginUser()}>Signin</Button>
             <Typography style={{textAlign:'center'}}>OR</Typography>
             <Button onClick={() => SwitchAccount()}>Create a Account</Button>
         </FormBox>
