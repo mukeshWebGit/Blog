@@ -15,7 +15,7 @@ color:red;
 export default function Login() {
   const signupInitiallValue = {
     name:'',
-    user:'',
+    username:'',
     password:''
   }
   
@@ -40,7 +40,6 @@ const onChangeFun = (e) => {
 
  const onValueChange = (e) => {
   setSignin ({...signin, [e.target.name] : e.target.value});
- 
 }
  
 const signupUser = async  () => {
@@ -59,7 +58,8 @@ const signupUser = async  () => {
     let response = await API.userLogin(signin); 
     if(response.isSuccess){
       setError(''); 
-      
+      sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
+      sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`)
     }else{
       setError('Someting went wrong! please try again later');
     }
@@ -83,7 +83,7 @@ const signupUser = async  () => {
         <FormBox>
             <DialogTitle >Sign Up</DialogTitle>
             <TextField type='text' name='name' label="Name" onChange={(e) => onChangeFun(e)}></TextField>
-            <TextField type='text' name='user' label="User" onChange={(e) => onChangeFun(e)}></TextField>
+            <TextField type='text' name='username' label="username" onChange={(e) => onChangeFun(e)}></TextField>
             <TextField type='password' name='password' label="Password"  onChange={(e) => onChangeFun(e)}></TextField> 
             {error && <Error>{error}</Error>}
             <Button variant='contained' onClick={() => signupUser()}>Signup</Button>
