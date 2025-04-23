@@ -10,8 +10,8 @@ function App() {
       <DataProvider>
         <BrowserRouter>
         <Routes>
-         <Route path='/login' element={ <Login/>} />  
-         <Route path='/' element={ <Home/>} /> 
+         <Route path="/" element={ <Login/>} />  
+         <Route path="/home" element={ <Home/>} /> 
           </Routes>
        </BrowserRouter>
        </DataProvider>
