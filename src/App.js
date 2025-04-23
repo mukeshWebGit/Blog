@@ -1,5 +1,6 @@
 import './App.css';
 import Login from './components/account/Login';
+import Header from './components/header/header';
 import Home from './components/home/home';
 import { DataProvider } from './context/dataprovider';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <DataProvider>
         <BrowserRouter>
+        <Header/>
         <Routes>
          <Route path="/" element={ <Login/>} />  
          <Route path="/home" element={ <Home/>} /> 
