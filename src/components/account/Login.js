@@ -15,7 +15,7 @@ const Error = styled(Typography)`
 color:red; 
 `
 
-export default function Login() {
+export default function Login(setIsAuthenticated) {
   const signupInitiallValue = {
     name:'',
     username:'',
@@ -67,6 +67,7 @@ const signupUser = async  () => {
       sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
       setAccount({username: response.data.username, name:response.data.name});
       navigate('/home');
+      setIsAuthenticated(true);
     }else{
       setError('Someting went wrong! please try again later');
     }

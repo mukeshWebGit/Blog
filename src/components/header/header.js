@@ -3,10 +3,10 @@ import {AppBar, Toolbar, styled} from '@mui/material';
 import { Link } from 'react-router-dom';
 const MenuBg = styled(AppBar)`
     background: #fff;
-    color: #000;
+    color: #000; 
 `;
 const MainMenu = styled(Toolbar)`
-    justify-content: space-between;
+    justify-content: center;
     & > a {
         text-decoration: none;
         color: inherit;
