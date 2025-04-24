@@ -14,7 +14,7 @@ import {BrowserRouter, Navigate, Outlet, Route, Routes} from 'react-router-dom';
         <Outlet />
       </>
     ) : (
-      <Navigate replace to="/" />
+      <Navigate replace to="/login" />
     );
   };
 
@@ -26,9 +26,9 @@ function App() {
       <DataProvider>
         <BrowserRouter>
         <Routes>
-         <Route path="/" element={ <Login setIsAuthenticated={setIsAuthenticated} />} />  
-         <Route path="/home" element={ <PrivateRoute isAuthenticated={isAuthenticated} />} >
-         <Route path="/home" element={ <Home/>} /> 
+         <Route path="/login" element={ <Login setIsAuthenticated={setIsAuthenticated} />} />  
+         <Route path="/" element={ <PrivateRoute isAuthenticated={isAuthenticated} />} >
+         <Route path="/" element={ <Home/>} /> 
          </Route>
           </Routes>
        </BrowserRouter>
