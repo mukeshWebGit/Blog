@@ -66,7 +66,7 @@ const signupUser = async  () => {
       sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
       sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
       setAccount({username: response.data.username, name:response.data.name});
-      navigate('/home');
+      navigate('/');
       setIsAuthenticated(true);
     }else{
       setError('Someting went wrong! please try again later');
