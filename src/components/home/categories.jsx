@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React from 'react';
 
 const Categories = () => {
@@ -16,6 +17,7 @@ const Categories = () => {
                             </a>
                         </li>
                     ))}
+                    <li className='addBlogBtn'><Button variant="contained">Add Blog</Button></li>
                 </ul>
             </div>
         </div>
