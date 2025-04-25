@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Toolbar, styled} from '@mui/material';  
+import {AppBar, Button, Toolbar, styled} from '@mui/material';  
 import { Link } from 'react-router-dom';
 const MenuBg = styled(AppBar)`
     background: #fff;
@@ -23,6 +23,7 @@ const Header = () => {
                 <Link to={'/about'}> About  </Link>
                 <Link to={'/contact'}> Contact  </Link>
                 <Link to={'/login'}> Logout  </Link> 
+                <Link to={'/addpost'}><Button variant="contained">Add Blog</Button></Link>
             </MainMenu>
         </MenuBg>
     );
