@@ -31,8 +31,8 @@ function App() {
          <Route path="/" element={ <PrivateRoute isAuthenticated={isAuthenticated} />} >
          <Route path="/" element={ <Home/>} /> 
          </Route>
-         <Route path="/create" element={ <PrivateRoute isAuthenticated={isAuthenticated} />} >
-         <Route path="/create" element={ <CreatePost/>} /> 
+         <Route path="/addpost" element={ <PrivateRoute isAuthenticated={isAuthenticated} />} >
+         <Route path="/addpost" element={ <CreatePost/>} /> 
          </Route>
           </Routes>
        </BrowserRouter>
