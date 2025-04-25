@@ -1,5 +1,4 @@
 import { Box, Button, FormControl, InputBase, styled } from '@mui/material';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import React from 'react';
 const Container = styled(Box)`
     width: 100%;
@@ -20,6 +19,9 @@ const StyledFormControl = styled(FormControl)`
     }
     & > div > input[type="file"] {
         padding: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
     }
     & > div > textarea {
         width: 100%;
@@ -40,17 +42,6 @@ const StyledFormControl = styled(FormControl)`
         }
     }
 `;
-const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
-  });
 const CreatePost = () => {
     return (
         <div>
@@ -58,20 +49,8 @@ const CreatePost = () => {
             <h1>Create a New Post</h1>
             <StyledFormControl>
                 <div>
-                <Button
-      component="label"
-      role={undefined}
-      variant="contained"
-      tabIndex={-1}
-      startIcon={<CloudUploadIcon />}
-    >
-      Upload files
-      <VisuallyHiddenInput
-        type="file"
-        onChange={(event) => console.log(event.target.files)}
-        multiple
-      />
-    </Button>
+                    <label htmlFor="uploadImg">upload</label>
+                    <input type="file" id="uploadImg" name="uploadImg" />
                 </div>
                 <div>
                     <label htmlFor="title">upload</label>
