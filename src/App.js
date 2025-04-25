@@ -32,7 +32,7 @@ function App() {
          <Route path="/" element={ <Home/>} /> 
          </Route>
          <Route path="/create" element={ <PrivateRoute isAuthenticated={isAuthenticated} />} >
-         <Route path="/" element={ <CreatePost/>} /> 
+         <Route path="/create" element={ <CreatePost/>} /> 
          </Route>
           </Routes>
        </BrowserRouter>

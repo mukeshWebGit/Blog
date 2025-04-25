@@ -1,8 +1,16 @@
+import { Box, styled } from '@mui/material';
 import React from 'react';
+const Container = styled(Box)`
+    width: 100%;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+`;
 
 const CreatePost = () => {
     return (
         <div>
+            <Container>
             <h1>Create a New Post</h1>
             <form>
                 <div>
@@ -15,6 +23,7 @@ const CreatePost = () => {
                 </div>
                 <button type="submit">Submit</button>
             </form>
+            </Container>
         </div>
     );
 };
