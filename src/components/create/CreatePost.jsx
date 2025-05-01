@@ -23,7 +23,7 @@ const StyledFormControl = styled(FormControl)`
         border-radius: 4px;
         border: 1px solid #ccc;
     }
-        & > div > input[type="text"] {
+        & > div > .css-aae3xl {
         padding: 10px;
         padding: 10px;
         border-radius: 4px;
